@@ -4,6 +4,17 @@
 
 /* For Dashboard div */
 
+#dashboardWelcome {
+    text-align: center;
+    width: 100%;
+    background-color: white;
+    padding-top: 3%;
+}
+
+#dashboardWelcome h3 {
+    font-size: 30px;
+}
+
 #dashboardMain {
     height: 100vh;
     padding-top: 3%;

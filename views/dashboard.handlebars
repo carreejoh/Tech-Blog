@@ -5,48 +5,121 @@
     <a class="item" href="/">HomePage</a>
     <a class="item" href="/dashboard">DashBoard</a>
     <div class="right menu">
-        <a class="item">Login</a>
-        <a class="item">Sign Up</a>
+        <a class="item" id="loginBtn">Login</a>
+        <a class="item" id="signupBtn">Sign Up</a>
     </div>
 </div>
 
-{{!-- For Post Modal --}}
-<div class="ui small modal">
+
+{{!-- For Login / Sign Up Modal --}}
+
+<div class="ui small modal loginModal">
     <i class="close icon"></i>
-  <div class="header">
-    Add Blog Post
-  </div>
-  <div class="ui form" id="newPostForm">
-    <div class="field">
-        <label>Post Title</label>
-        <input type="text" name="newPostTitle">
+    <div class="header">
+        Login
     </div>
-    <div class="field">
-        <label>Post Content</label>
-        {{!-- <input type="text" name="newPostContent"> --}}
-        <textarea rows="5"></textarea>
+    <form class="ui form" id="newPostForm">
+        <div class="field">
+            <label>Username</label>
+            <input type="text" id="loginUsername" name="loginUsername">
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input type="text" id="loginPassword" name="loginPassword">
+        </div>
+    </form>
+    <div class="actions">
+        <button class="ui black deny button">
+            Cancel
+        </button>
+        <button class="ui positive right labeled icon button">
+            Login
+            <i class="checkmark icon"></i>
+        </button>
     </div>
-  </div>
-  <div class="actions">
-    <button class="ui black deny button">
-      Nope
-    </button>
-    <button class="ui positive right labeled icon button">
-      Yep, that's me
-      <i class="checkmark icon"></i>
-    </button>
-  </div>
+</div>
+
+<div class="ui small modal signupModal">
+    <i class="close icon"></i>
+    <div class="header">
+        Sign Up
+    </div>
+    <form class="ui form" id="newPostForm">
+        <div class="field">
+            <label>Username</label>
+            <input type="text" id="signupUsername" name="signupUsername">
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input type="text" id="signupPassword" name="signupPassword" placeholder="Must be between 8-24 chars">
+        </div>
+        <div class="field">
+            <label>Confirm Password</label>
+            <input type="text" id="signupPasswordConfirm" name="signupPasswordConfirm">
+        </div>
+    </form>
+    <div class="actions">
+        <button class="ui black deny button">
+            Cancel
+        </button>
+        <button class="ui positive right labeled icon button" id="signupSubmit">
+            Sign Up
+            <i class="checkmark icon"></i>
+        </button>
+    </div>
+</div>
+
+
+{{!-- For Post Modal --}}
+<div class="ui small modal postModal">
+    <i class="close icon"></i>
+    <div class="header">
+        Add Blog Post
+    </div>
+    <div class="ui form" id="newPostForm">
+        <div class="field">
+            <label>Post Title</label>
+            <input type="text" name="newPostTitle">
+        </div>
+        <div class="field">
+            <label>Post Content</label>
+            {{!-- <input type="text" name="newPostContent"> --}}
+            <textarea rows="5"></textarea>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="ui black deny button">
+            Cancel
+        </button>
+        <button class="ui positive right labeled icon button">
+            Post
+            <i class="checkmark icon"></i>
+        </button>
+    </div>
 </div>
 
 
 <div id="dashboardMain">
+    <div id="dashboardWelcome">
+        <h3>View Your Posts</h3>
+    </div>
     <div id="makePostContainer">
         <div class="ui button" id="createPostBtn">
             Create New Post
         </div>
         <script>
-            $('.ui.modal')
+            $('.postModal')
                 .modal('attach events', '#createPostBtn')
+                .modal('show');
+        </script>
+        <script>
+            $('.loginModal')
+                .modal('attach events', '#loginBtn')
+                .modal('show');
+        </script>
+        <script>
+            $('.signupModal')
+                .modal('attach events', '#signupBtn')
                 .modal('show');
         </script>
     </div>
