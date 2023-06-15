@@ -1,0 +1,53 @@
+<div class="ui huge menu" id="appMenu">
+    <div class="item">
+        <h3>Tech Blog</h3>
+    </div>
+    <a class="item" href="/">HomePage</a>
+    <a class="item" href="/dashboard">DashBoard</a>
+    <div class="right menu">
+        <a class="item">Login</a>
+        <a class="item">Sign Up</a>
+    </div>
+</div>
+
+{{!-- For Post Modal --}}
+<div class="ui small modal">
+    <i class="close icon"></i>
+  <div class="header">
+    Add Blog Post
+  </div>
+  <div class="ui form" id="newPostForm">
+    <div class="field">
+        <label>Post Title</label>
+        <input type="text" name="newPostTitle">
+    </div>
+    <div class="field">
+        <label>Post Content</label>
+        {{!-- <input type="text" name="newPostContent"> --}}
+        <textarea rows="5"></textarea>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="ui black deny button">
+      Nope
+    </button>
+    <button class="ui positive right labeled icon button">
+      Yep, that's me
+      <i class="checkmark icon"></i>
+    </button>
+  </div>
+</div>
+
+
+<div id="dashboardMain">
+    <div id="makePostContainer">
+        <div class="ui button" id="createPostBtn">
+            Create New Post
+        </div>
+        <script>
+            $('.ui.modal')
+                .modal('attach events', '#createPostBtn')
+                .modal('show');
+        </script>
+    </div>
+</div>

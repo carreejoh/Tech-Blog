@@ -7,6 +7,14 @@ router.get('/', (req, res) => {
     } catch (e) {
         console.error(e);
     }
+});
+
+router.get('/dashboard', (req, res) => {
+    try {
+        res.render('dashboard');
+    } catch (e) {
+        console.error(e);
+    }
 })
 
 
