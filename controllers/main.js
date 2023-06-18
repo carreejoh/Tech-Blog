@@ -11,7 +11,14 @@ router.get('/', (req, res) => {
 
 router.get('/dashboard', (req, res) => {
     try {
-        res.render('dashboard');
+        // res.render('dashboard');
+        if(req.session.loggedIn) {
+            res.render('dashboard', {
+                loggedIn: req.session.loggedIn,
+            })
+        } else {
+            res.redirect('/');
+        }
     } catch (e) {
         console.error(e);
     }

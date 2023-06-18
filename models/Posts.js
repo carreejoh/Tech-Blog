@@ -1,28 +1,32 @@
 const { Model, DataTypes } = require('sequelize');
-//INCLUDE bcrypt in future
 const sequelize = require('../config/connection');
 
-class User extends Model {};
+class Posts extends Model {};
 
-User.init(
+Posts.init(
     {
-        id:{
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        username: {
-            type: DataTypes.STRING,
+        user_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
-            unique: true
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [8,24],
+            references: {
+                model: 'user',
+                key: 'id',
+                unique: true
             }
+        },
+        post_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        post_content: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     },
     {
@@ -30,8 +34,8 @@ User.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'posts',
     }
-    );
+);
 
-module.exports = User;
+module.exports = Posts

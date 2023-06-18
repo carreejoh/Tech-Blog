@@ -1,12 +1,26 @@
 const router = require('express').Router();
 const User = require('../../models/User');
+const Posts = require('../../models/Posts');
 
 // For api/user/
+
+
+//Fixes eager loading error
+
+User.hasMany(Posts, {
+    foreignKey: 'user_id'
+});
+Posts.belongsTo(User, {
+    foreignKey: 'user_id'
+});
+
+
+
 
 router.get('/', async (req, res) => {
     try {
         const response = await User.findAll({
-
+            include: [Posts],
         });
         res.status(200).json(response);
     } catch (e) {
@@ -24,10 +38,52 @@ router.post('/signup', async (req, res) => {
         });
         //Add login functionality
         res.status(200).json(newUser);
+        req.session.save(() => {
+            req.session.loggedIn = true;
+            req.session.userid = newUserData.dataValues.id
+            res.status(200).json(newUserData);
+        });
     } catch (e) {
         console.error(e);
         res.status(500).json(e);
     }
 })
+
+
+router.post('/login', async (req, res) => {
+    try {
+        const response = await User.findOne({
+            where: {
+                username: req.body.username
+            }
+        });
+        if(!response) {
+            res.status(400).json({message: 'User doesnt exist'});
+            return;
+        }
+
+        req.session.save(() => {
+            req.session.loggedIn = true;
+            req.session.userid = response.dataValues.id
+            res.status(200).json({ user: response, message: "Log in successful" });
+        });
+        // const password = await response.checkPassword(req.body.password);
+
+        // if(!password) {
+        //     res.status(400).json({message: 'Incorrect password'});
+        //     return;
+        // }
+
+        // req.session.save(() => {
+        //     req.session.loggedIn = true;
+        //     req.session.userid = response.dataValues.id
+        //     res.status(200).json({ user: response, message: "Log in successful" });
+        // });
+
+    } catch (e) {
+        console.error(e);
+        res.status(500).json(e);
+    }
+});
 
 module.exports = router;

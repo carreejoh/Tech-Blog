@@ -12,9 +12,9 @@
 
 <div id="homePageMain">
     <div id="homeWelcome">
-            <h2>Post Feed</h2>
-        </div>
-        
+        <h2>Post Feed</h2>
+    </div>
+
     <div id="homePostContainer">
         <div class="renderedPost">
             <div class="renderedPostHeader ui secondary menu">
@@ -28,9 +28,78 @@
                 </div>
             </div>
             <div class="renderedPostContent">
-                <p>CSS is essential for styling website and giving them drop and all kidn of awesome thigns yeahdhsfasdjklf sdf df df df dsf s a SD JKASDK AKKSD SKADJ AJSD ASD </p>
+                <p>CSS is essential for styling website and giving them drop and all kidn of awesome thigns
+                    yeahdhsfasdjklf sdf df df df dsf s a SD JKASDK AKKSD SKADJ AJSD ASD </p>
             </div>
         </div>
 
     </div>
 </div>
+
+
+<div class="ui small modal loginModal">
+    <i class="close icon"></i>
+    <div class="header">
+        Login
+    </div>
+    <form class="ui form" id="newPostForm">
+        <div class="field">
+            <label>Username</label>
+            <input type="text" id="loginUsername" name="loginUsername">
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input type="text" id="loginPassword" name="loginPassword">
+        </div>
+    </form>
+    <div class="actions">
+        <button class="ui black deny button">
+            Cancel
+        </button>
+        <button class="ui positive right labeled icon button" id="loginSubmit">
+            Login
+            <i class="checkmark icon"></i>
+        </button>
+    </div>
+</div>
+
+<div class="ui small modal signupModal">
+    <i class="close icon"></i>
+    <div class="header">
+        Sign Up
+    </div>
+    <form class="ui form" id="newPostForm">
+        <div class="field">
+            <label>Username</label>
+            <input type="text" id="signupUsername" name="signupUsername">
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input type="text" id="signupPassword" name="signupPassword" placeholder="Must be between 8-24 chars">
+        </div>
+        <div class="field">
+            <label>Confirm Password</label>
+            <input type="text" id="signupPasswordConfirm" name="signupPasswordConfirm">
+        </div>
+    </form>
+    <div class="actions">
+        <button class="ui black deny button">
+            Cancel
+        </button>
+        <button class="ui positive right labeled icon button" id="signupSubmit">
+            Sign Up
+            <i class="checkmark icon"></i>
+        </button>
+    </div>
+</div>
+
+<script>
+    $('.loginModal')
+        .modal('attach events', '#loginBtn')
+        .modal('show');
+</script>
+<script>
+    $('.signupModal')
+        .modal('attach events', '#signupBtn')
+        .modal('show');
+</script>
