@@ -22,23 +22,9 @@
     </div>
 
     <div id="homePostContainer">
-        <div class="renderedPost">
-            <div class="renderedPostHeader ui secondary menu">
-                <div class="item">
-                    <h5>Why CSS is dank</h5>
-                </div>
-                <div class="right menu">
-                    <div class="item">
-                        <h7>Posted by CRJ on 6/15/23</h7>
-                    </div>
-                </div>
-            </div>
-            <div class="renderedPostContent">
-                <p>CSS is essential for styling website and giving them drop and all kidn of awesome thigns
-                    yeahdhsfasdjklf sdf df df df dsf s a SD JKASDK AKKSD SKADJ AJSD ASD </p>
-            </div>
-        </div>
-
+        {{#each posts as |post|}}
+        {{> post-partial}}
+        {{/each}}
     </div>
 </div>
 
@@ -104,11 +90,11 @@
 <script>
     $('.loginModal')
         .modal('attach events', '#loginBtn')
-        .modal('show');
+      //  .modal('show');
 </script>
 <script>
     $('.signupModal')
         .modal('attach events', '#signupBtn')
-        .modal('show');
+       // .modal('show');
 </script>
 {{/if}}

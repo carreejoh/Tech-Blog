@@ -20,6 +20,10 @@ Posts.init(
                 unique: true
             }
         },
+        user_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         post_name: {
             type: DataTypes.STRING,
             allowNull: false

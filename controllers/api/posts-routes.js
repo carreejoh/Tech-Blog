@@ -30,8 +30,12 @@ router.post('/newpost', async (req, res) => {
         const userid = req.session.userid
         console.log(userid)
 
+        const user = await User.findByPk(req.session.userid);
+        const username = user.dataValues.username;
+
         const addpost = await Posts.create({
             user_id: userid,
+            user_name: username,
             post_name: req.body.post_name,
             post_content: req.body.post_content,
             post_date: null
