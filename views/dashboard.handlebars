@@ -99,6 +99,11 @@
             Create New Post
         </div>
     </div>
+    <div id="yourPostsDiv">
+        {{#each posts as |post|}}
+        {{> yourposts-partial}}
+        {{/each}}
+    </div>
 </div>
 
 {{#if loggedIn}}
