@@ -4,10 +4,16 @@
     </div>
     <a class="item" href="/">HomePage</a>
     <a class="item" href="/dashboard">DashBoard</a>
+    {{#if loggedIn}}
     <div class="right menu">
-        <a class="item">Login</a>
-        <a class="item">Sign Up</a>
+        <a class="item" id="logoutBtn">Log Out</a>
     </div>
+    {{else}}
+    <div class="right menu">
+        <a class="item" id="loginBtn">Login</a>
+        <a class="item" id="signupBtn">Sign Up</a>
+    </div>
+    {{/if}}
 </div>
 
 <div id="homePageMain">
@@ -36,6 +42,9 @@
     </div>
 </div>
 
+{{#if loggedIn}}
+
+{{else}}
 
 <div class="ui small modal loginModal">
     <i class="close icon"></i>
@@ -92,7 +101,6 @@
         </button>
     </div>
 </div>
-
 <script>
     $('.loginModal')
         .modal('attach events', '#loginBtn')
@@ -103,3 +111,4 @@
         .modal('attach events', '#signupBtn')
         .modal('show');
 </script>
+{{/if}}

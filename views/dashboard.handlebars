@@ -4,15 +4,23 @@
     </div>
     <a class="item" href="/">HomePage</a>
     <a class="item" href="/dashboard">DashBoard</a>
+    {{#if loggedIn}}
+    <div class="right menu">
+        <a class="item" id="logoutBtn">Log Out</a>
+    </div>
+    {{else}}
     <div class="right menu">
         <a class="item" id="loginBtn">Login</a>
         <a class="item" id="signupBtn">Sign Up</a>
     </div>
+    {{/if}}
 </div>
 
 
 {{!-- For Login / Sign Up Modal --}}
+{{#if loggedIn}}
 
+{{else}}
 <div class="ui small modal loginModal">
     <i class="close icon"></i>
     <div class="header">
@@ -68,36 +76,19 @@
         </button>
     </div>
 </div>
-
+<script>
+    $('.loginModal')
+        .modal('attach events', '#loginBtn')
+        .modal('show');
+</script>
+<script>
+    $('.signupModal')
+        .modal('attach events', '#signupBtn')
+        .modal('show');
+</script>
+{{/if}}
 
 {{!-- For Post Modal --}}
-<div class="ui small modal postModal">
-    <i class="close icon"></i>
-    <div class="header">
-        Add Blog Post
-    </div>
-    <div class="ui form" id="newPostForm">
-        <div class="field">
-            <label>Post Title</label>
-            <input type="text" name="newPostTitle">
-        </div>
-        <div class="field">
-            <label>Post Content</label>
-            {{!-- <input type="text" name="newPostContent"> --}}
-            <textarea rows="5"></textarea>
-        </div>
-    </div>
-    <div class="actions">
-        <button class="ui black deny button">
-            Cancel
-        </button>
-        <button class="ui positive right labeled icon button">
-            Post
-            <i class="checkmark icon"></i>
-        </button>
-    </div>
-</div>
-
 
 <div id="dashboardMain">
     <div id="dashboardWelcome">
@@ -107,20 +98,39 @@
         <div class="ui button" id="createPostBtn">
             Create New Post
         </div>
-        <script>
-            $('.postModal')
-                .modal('attach events', '#createPostBtn')
-                .modal('show');
-        </script>
-        <script>
-            $('.loginModal')
-                .modal('attach events', '#loginBtn')
-                .modal('show');
-        </script>
-        <script>
-            $('.signupModal')
-                .modal('attach events', '#signupBtn')
-                .modal('show');
-        </script>
     </div>
 </div>
+
+{{#if loggedIn}}
+<div class="ui small modal postModal">
+    <i class="close icon"></i>
+    <div class="header">
+        Add Blog Post
+    </div>
+    <div class="ui form" id="newPostForm">
+        <div class="field">
+            <label>Post Title</label>
+            <input type="text" name="newPostTitle" id="newPostTitle">
+        </div>
+        <div class="field">
+            <label>Post Content</label>
+            {{!-- <input type="text" name="newPostContent"> --}}
+            <textarea rows="5" name="newPostContent" id="newPostContent"></textarea>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="ui black deny button">
+            Cancel
+        </button>
+        <button class="ui positive right labeled icon button" id="newPostSubmit">
+            Post
+            <i class="checkmark icon"></i>
+        </button>
+    </div>
+</div>
+<script>
+    $('.postModal')
+        .modal('attach events', '#createPostBtn')
+        .modal('show');
+</script>
+{{/if}}

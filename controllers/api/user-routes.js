@@ -40,8 +40,8 @@ router.post('/signup', async (req, res) => {
         res.status(200).json(newUser);
         req.session.save(() => {
             req.session.loggedIn = true;
-            req.session.userid = newUserData.dataValues.id
-            res.status(200).json(newUserData);
+            req.session.userid = newUser.dataValues.id
+            // res.status(200).json(newUser);
         });
     } catch (e) {
         console.error(e);
@@ -80,6 +80,21 @@ router.post('/login', async (req, res) => {
         //     res.status(200).json({ user: response, message: "Log in successful" });
         // });
 
+    } catch (e) {
+        console.error(e);
+        res.status(500).json(e);
+    }
+});
+
+router.post('/logout', async (req, res) => {
+    try {
+        if(req.session.loggedIn) {
+            req.session.destroy(() => {
+                res.status(200).end();
+            });
+        } else {
+            res.status(404).end();
+        }
     } catch (e) {
         console.error(e);
         res.status(500).json(e);

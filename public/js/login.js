@@ -8,7 +8,6 @@ const loginSubmit = document.querySelector('#loginSubmit');
 const loginUsername = document.getElementById('loginUsername');
 const loginPassword = document.getElementById('loginPassword');
 
-
 // const commitSignUp = async () => {
     
 

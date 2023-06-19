@@ -27,6 +27,10 @@ Posts.init(
         post_content: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        post_date: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
         }
     },
     {
