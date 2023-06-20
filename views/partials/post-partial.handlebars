@@ -24,14 +24,21 @@
         </div>
     </div>
     <div class="commentsSection" id="commentsSection{{id}}">
-        <div class="ui button commentBtn" id="{{id}}">
-            Comment
-        </div>
-        <div class="ui list">
-            <div class="item">
-                <h3>Blabh blah blah good content g</h3>
-                <h3>CRJ4637 6/19/2023</h3>
+        {{!-- <div class="ui horizontal stackable one cards commentCardDiv"> --}}
+            <div class="ui middle aligned list">
+                {{#each comments}}
+                <div class="item commentCard">
+                    <div class="right floated content">
+                        <p>{{comment_user}}<br>6/20/2023</p>
+                    </div>
+                    <div class="content">
+                        <h3>{{comment_content}}</h3>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="ui button gray secondary commentBtn" id="{{id}}">
+                Add Comment
             </div>
         </div>
     </div>
-</div>

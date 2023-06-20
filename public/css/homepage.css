@@ -99,5 +99,28 @@
     padding-top: 1%;
     padding-bottom: 1%;
     display: none;
+    text-align: right;
 }
 
+.commentCardDiv {
+    width: 100%;
+}
+
+.commentCardContent {
+    display: flex;
+    flex-direction: row;
+}
+
+.commentCard {
+    margin-bottom: 1%;
+    width: 90%;
+    margin-left: 5%;
+    background-color: white;
+    border: solid 2px white;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.content {
+    padding: 1%;
+}

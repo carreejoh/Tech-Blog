@@ -1,10 +1,13 @@
 const router = require('express').Router();
 const Posts = require('../models/Posts');
+const Comments = require('../models/Comments');
 
 router.get('/', async (req, res) => {
     try {
 
-        const allPosts = await Posts.findAll().catch((err) => {
+        const allPosts = await Posts.findAll({
+            include: [Comments],
+        }).catch((err) => {
             res.json(err)
         });
 
