@@ -15,7 +15,15 @@
     <div class="renderedPostContent">
         <p>{{post_content}}</p>
     </div>
-    <div class="commentsSection">
+    <div class="displayCommentsDiv">
+        <div class="ui black tertiary button displayCommentsBtn" id="{{id}}">
+            View Comments
+        </div>
+        <div class="ui black tertiary button hideCommentsBtn" id="{{id}}">
+            Hide Comments
+        </div>
+    </div>
+    <div class="commentsSection" id="commentsSection{{id}}">
         <div class="ui button commentBtn" id="{{id}}">
             Comment
         </div>
@@ -27,9 +35,3 @@
         </div>
     </div>
 </div>
-
-<script>
-        $('.commentModal')
-            .modal('attach events', '.commentBtn')
-       // .modal('show');
-    </script>

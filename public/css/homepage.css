@@ -46,6 +46,8 @@
     height: 15%;
     margin-top: 5%;
     margin-bottom: 5%;
+    border: solid 2px rgb(49, 49, 49);
+    border-radius: 10px;
 }
 
 .renderedPostContent {
@@ -57,6 +59,9 @@
 .renderedPostHeader {
     padding-left: 4%;
     padding-right: 4%;
+    padding-top: 2%;
+    padding-bottom: .7%;
+    height: 4vh;
 }
 
 .renderedPostContent p {
@@ -65,15 +70,11 @@
 }
 
 .postName {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .postId {
-    font-size: 20px;
-}
-
-.commentsSection {
-
+    font-size: 24px;
 }
 
 /* For comment modal */ 
@@ -85,3 +86,18 @@
     padding-top: 2%;
     padding-bottom: 2%;
 }
+
+/* For comment section */
+
+.displayCommentsDiv {
+    text-align: center;
+}
+
+.commentsSection {
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: none;
+}
+

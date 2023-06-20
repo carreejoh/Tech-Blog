@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Posts = require('../../models/Posts');
 const User = require('../../models/User');
-
+const Comments = require('../../models/Comments');
 
 User.hasMany(Posts, {
     foreignKey: 'user_id'
@@ -10,12 +10,21 @@ Posts.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
+Posts.hasMany(Comments, {
+    foreignKey: 'post_id'
+});
+
+Comments.belongsTo(Posts, {
+    foreignKey: 'post_id'
+});
+
+
 // For api/posts
 
 router.get('/', async (req, res) => {
     try {
         const response = await Posts.findAll({
-
+            include: [Comments],
         });
         res.status(200).json(response);
     } catch (e) {

@@ -1,19 +1,7 @@
-// const logoutSubmit = document.querySelector('#logoutBtn');
+
 const commentButton = document.querySelectorAll(".commentBtn");
-
-// let commentBtn = document.getElementById('.commentBtn');
-
-// // const commitLogout = async () => {
-// //     const response = await fetch('/api/user/logout', {
-// //         method: 'POST'
-// //     });
-
-// //     if(response.ok) {
-// //         window.location.replace('/');
-// //     } else {
-// //         alert('Cannot logout');
-// //     }
-// // }
+const displayCommentsBtn = document.querySelectorAll(".displayCommentsBtn");
+const hideCommentsBtn = document.querySelectorAll(".hideCommentsBtn");
 
 
 const addComment = function () {
@@ -23,10 +11,6 @@ const addComment = function () {
     const postContent = document.getElementById('newComment');
 
     let post_id = this.id; 
-    // const logComment = function () {
-    //     console.log(commentContent.value)
-    //     console.log("hello there!")
-    // };
 
     const logComment = async () => {
         let content = postContent.value.trim();
@@ -46,11 +30,36 @@ const addComment = function () {
         })
         return;
     } 
-
     submitComment.addEventListener("click", logComment)
+};
+
+
+const displayComments = function () {
+    console.log(this.id)
+    let currentPostShow = document.querySelector(`#commentsSection${this.id}`);
+    currentPostShow.setAttribute("style", "display: block;");
 }
+
+const hideComments = function () {
+    console.log(this.id)
+    let currentPost = document.querySelector(`#commentsSection${this.id}`);
+    currentPost.setAttribute("style", "display: none;");
+}
+
+
+
+
 
 
 for(let i=0; i<commentButton.length; i++) {
     commentButton[i].addEventListener("click", addComment);
 }
+
+for(let i=0; i<displayCommentsBtn.length; i++) {
+    displayCommentsBtn[i].addEventListener("click", displayComments);
+}
+
+for(let i=0; i<hideCommentsBtn.length; i++) {
+    hideCommentsBtn[i].addEventListener("click", hideComments);
+}
+
