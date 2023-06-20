@@ -67,3 +67,21 @@
 .postName {
     font-size: 20px;
 }
+
+.postId {
+    font-size: 20px;
+}
+
+.commentsSection {
+
+}
+
+/* For comment modal */ 
+
+#newCommentForm {
+    width: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}

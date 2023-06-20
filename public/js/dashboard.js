@@ -23,7 +23,6 @@ const commitLogout = async () => {
 
 const newPost = async () => {
 
-
     const post_name = newPostTitle.value.trim();
     const post_content = newPostContent.value.trim();
 

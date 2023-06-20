@@ -26,21 +26,20 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
     try {
-        
-        const yourPosts = await Posts.findAll({
-            where: {
-                user_id: req.session.userid
-            },
-        });
-
-        if(!yourPosts) {
-            res.status(404).json({ message: "You haven't posted yet!"});
-        }
-
-        const posts = yourPosts.map((post) => post.get({ plain: true}));
-        console.log(posts);
 
         if(req.session.loggedIn) {
+            const yourPosts = await Posts.findAll({
+                where: {
+                    user_id: req.session.userid
+                },
+            });
+    
+            if(!yourPosts) {
+                res.status(404).json({ message: "You haven't posted yet!"});
+            }
+    
+            const posts = yourPosts.map((post) => post.get({ plain: true}));
+            console.log(posts);
             res.render('dashboard', {
                 loggedIn: req.session.loggedIn,
                 posts
