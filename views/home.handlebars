@@ -33,7 +33,31 @@
 </div>
 
 {{#if loggedIn}}
-
+<div class="ui small modal commentModal">
+        <i class="close icon"></i>
+        <div class="header">
+            Add Comment
+        </div>
+        <form class="ui form" id="newCommentForm">
+            <div class="field">
+                <textarea rows="4" name="newComment" id="newComment" placeholder="No more than 150 chars"></textarea>
+            </div>
+        </form>
+        <div class="actions">
+            <button class="ui black deny button">
+                Cancel
+            </button>
+            <button class="ui positive right labeled icon button submitCommentBtn" id="submitComment">
+                Leave Comment
+                <i class="checkmark icon"></i>
+            </button>
+        </div>
+    </div>
+    <script>
+        $('.commentModal')
+            .modal('attach events', '.commentBtn')
+       // .modal('show');
+    </script>
 {{else}}
 
 <div class="ui small modal loginModal">

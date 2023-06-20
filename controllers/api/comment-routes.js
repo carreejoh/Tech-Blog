@@ -17,17 +17,22 @@ router.get('/', async (req, res) => {
 })
 
 
-// router.post('/newcomment', async (req, res) => {
-//     try{
-//         const addComment = await Comments.create({
-//             post_id:    ,
-//             comment_user:   ,
-//             comment_content:   ,
-//             comment_date: null
-//         })
-//     } catch (e) {
-//         console.error(e);
-//     }
-// })
+router.post('/newcomment', async (req, res) => {
+    try{
+    
+        const user = await User.findByPk(req.session.userid);
+        const username = user.dataValues.username;
+
+        const addComment = await Comments.create({
+            post_id: req.body.post_id,
+            comment_user: username,
+            comment_content: req.body.content,
+            comment_date: null
+        })
+        res.json(addComment);
+    } catch (e) {
+        console.error(e);
+    }
+})
 
 module.exports = router;

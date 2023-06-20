@@ -35,6 +35,7 @@ const newPost = async () => {
     .then((response) => response.json())
     .then((data) => {
         console.log(data);
+        location.reload();
       })
   
 }
@@ -43,3 +44,9 @@ const newPost = async () => {
 
 logoutSubmit.addEventListener("click", commitLogout);
 newPostSubmit.addEventListener("click", newPost);
+
+
+
+
+
+

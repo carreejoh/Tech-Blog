@@ -16,7 +16,7 @@
         <p>{{post_content}}</p>
     </div>
     <div class="commentsSection">
-        <div class="ui button commentBtn">
+        <div class="ui button commentBtn" id="{{id}}">
             Comment
         </div>
         <div class="ui list">
@@ -24,27 +24,6 @@
                 <h3>Blabh blah blah good content g</h3>
                 <h3>CRJ4637 6/19/2023</h3>
             </div>
-        </div>
-    </div>
-
-    <div class="ui small modal commentModal">
-        <i class="close icon"></i>
-        <div class="header">
-            Add Comment
-        </div>
-        <form class="ui form" id="newCommentForm">
-            <div class="field">
-                <textarea rows="4" name="newComment" id="newComment" placeholder="No more than 150 chars"></textarea>
-            </div>
-        </form>
-        <div class="actions">
-            <button class="ui black deny button">
-                Cancel
-            </button>
-            <button class="ui positive right labeled icon button submitCommentBtn" id="{{id}}">
-                Leave Comment
-                <i class="checkmark icon"></i>
-            </button>
         </div>
     </div>
 </div>
