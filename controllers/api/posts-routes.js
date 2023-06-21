@@ -56,4 +56,25 @@ router.post('/newpost', async (req, res) => {
     }
 })
 
+
+router.delete('/deletepost', async (req, res) => {
+    try {
+        await Comments.destroy({
+            where: {
+                post_id: req.body.postId
+            }
+        });
+
+        await Posts.destroy({
+            where: {
+                id: req.body.postId
+            }
+        });
+        res.status(200).json({message: "Post has been deleted"});
+    } catch (e) {
+        console.error(e);
+    }
+});
+
+
 module.exports = router;

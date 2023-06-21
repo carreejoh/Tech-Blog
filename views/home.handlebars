@@ -21,9 +21,6 @@
         <h2>Post Feed</h2>
     </div>
 
-{{!-- For comment modal --}}
-
-
 
     <div id="homePostContainer">
         {{#each posts as |post|}}
@@ -34,30 +31,30 @@
 
 {{#if loggedIn}}
 <div class="ui small modal commentModal">
-        <i class="close icon"></i>
-        <div class="header">
-            Add Comment
-        </div>
-        <form class="ui form" id="newCommentForm">
-            <div class="field">
-                <textarea rows="4" name="newComment" id="newComment" placeholder="No more than 150 chars"></textarea>
-            </div>
-        </form>
-        <div class="actions">
-            <button class="ui black deny button">
-                Cancel
-            </button>
-            <button class="ui positive right labeled icon button submitCommentBtn" id="submitComment">
-                Leave Comment
-                <i class="checkmark icon"></i>
-            </button>
-        </div>
+    <i class="close icon"></i>
+    <div class="header">
+        Add Comment
     </div>
-    <script>
-        $('.commentModal')
-            .modal('attach events', '.commentBtn')
+    <form class="ui form" id="newCommentForm">
+        <div class="field">
+            <textarea rows="4" name="newComment" id="newComment" placeholder="No more than 150 chars"></textarea>
+        </div>
+    </form>
+    <div class="actions">
+        <button class="ui black deny button">
+            Cancel
+        </button>
+        <button class="ui positive right labeled icon button submitCommentBtn" id="submitComment">
+            Leave Comment
+            <i class="checkmark icon"></i>
+        </button>
+    </div>
+</div>
+<script>
+    $('.commentModal')
+        .modal('attach events', '.commentBtn')
        // .modal('show');
-    </script>
+</script>
 {{else}}
 
 <div class="ui small modal loginModal">
@@ -128,4 +125,3 @@
        // .modal('show');
 </script>
 {{/if}}
-

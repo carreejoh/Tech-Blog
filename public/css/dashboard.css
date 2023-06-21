@@ -16,7 +16,7 @@
 }
 
 #dashboardMain {
-    height: 110vh;
+    height: 100%;
     padding-top: 3%;
     padding-left: 20%;
     padding-right: 20%;
@@ -31,6 +31,7 @@
     text-align: center;
 }
 
+
 /* For New Post Modal */ 
 #newPostForm {
     width: 100%;
@@ -44,16 +45,24 @@
 /* For Your Posts */
 
 #yourPostsDiv {
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 3%;
-    height: 80vh;
+    padding: 5%;
+    height: 100%;
     background-color: rgb(255, 255, 255);
 }
 
 .yourPosts {
     background-color: rgb(192, 190, 190);
+    margin-top: 1%;
+    margin-bottom: 5%;
+    border: solid 2px rgb(49, 49, 49);
+    border-radius: 10px;
 }
+
+.updateDeleteDiv {
+    text-align: center;
+    font-size: 24px;
+}
+
 
 /* For Footer */
 
