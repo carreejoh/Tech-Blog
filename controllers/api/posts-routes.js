@@ -77,4 +77,24 @@ router.delete('/deletepost', async (req, res) => {
 });
 
 
+router.put('/updatepost', async (req, res) => {
+    try{
+        Posts.update(
+            {
+                post_name: req.body.newTitle,
+                post_content: req.body.newContent
+            },
+            {
+                where: {
+                    id: req.body.postId
+                }
+            }
+        )
+
+        res.status(200).json({message: "Post has been updated"});
+    } catch (err) {
+        console.error(err);
+    }
+})
+
 module.exports = router;

@@ -1,7 +1,7 @@
 <div class="yourPosts">
     <div class="renderedPostHeader ui secondary menu">
         <div class="item">
-            <h5 class="postName">{{post_name}}</h5>
+            <h5 class="postName" id="postName{{id}}">{{post_name}}</h5>
         </div>
         <div class="right menu">
             <div class="item">
@@ -10,10 +10,10 @@
         </div>
     </div>
     <div class="renderedPostContent">
-        <p>{{post_content}}</p>
+        <p id="postContent{{id}}">{{post_content}}</p>
     </div>
     <div class="updateDeleteDiv">
-        <div class="ui blue tertiary button">
+        <div class="ui blue tertiary button updatePostBtn" id="{{id}}">
             Edit
         </div>
         <div class="ui red tertiary button deletePostBtn" id="{{id}}">

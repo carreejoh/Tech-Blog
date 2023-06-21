@@ -138,4 +138,65 @@
         .modal('attach events', '#createPostBtn')
        // .modal('show');
 </script>
+
+{{!-- For Edit Post Modal --}}
+
+<div class="ui small modal updatePostModal">
+    <i class="close icon cancelEdit"></i>
+    <div class="header">
+        Edit Blog Post
+    </div>
+    <div class="ui form" id="updatedPostForm">
+        <div class="field">
+            <label>Post Title</label>
+            <input type="text" name="updatedPostTitle" id="updatedPostTitle">
+        </div>
+        <div class="field">
+            <label>Post Content</label>
+            <textarea rows="5" name="updatedPostContent" id="updatedPostContent"></textarea>
+        </div>
+    </div>
+    <div class="actions">
+        <button class="ui black deny button cancelEdit">
+            Cancel
+        </button>
+        <button class="ui positive right labeled icon button" id="updatedPostSubmit">
+            Confirm
+            <i class="checkmark icon"></i>
+        </button>
+    </div>
+</div>
+<script>
+    $('.updatePostModal')
+        .modal('setting', 'closable', false)
+        .modal('attach events', '.updatePostBtn')
+       // .modal('show');
+</script>
+
+{{!-- For Delete Confirm Modal --}}
+
+{{!-- <div class="ui basic modal deleteConfirmModal">
+  <div class="ui icon header">
+    <i class="archive icon"></i>
+    Archive Old Messages
+  </div>
+  <div class="content">
+    <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+  </div>
+  <div class="actions">
+    <div class="ui red basic cancel inverted button">
+      <i class="remove icon"></i>
+      No
+    </div>
+    <div class="ui green ok inverted button">
+      <i class="checkmark icon"></i>
+      Yes
+    </div>
+  </div>
+</div> --}}
+{{!-- <script>
+    $('.updatePostModal')
+        .modal('attach events', '.updatePostBtn')
+       // .modal('show');
+</script> --}}
 {{/if}}
