@@ -28,6 +28,8 @@ const commitLogout = async () => {
 
 const newPost = async () => {
 
+    
+
     const post_name = newPostTitle.value.trim();
     const post_content = newPostContent.value.trim();
 
@@ -71,11 +73,10 @@ const deletePostFn = function () {
     deletePostAsync();
 }
 
-
 const updatePostFn = function () {
 
     let postId = this.id
-
+    console.log(postId);
 
     let currentTitle = document.querySelector(`#postName${postId}`);
     let currentContent = document.querySelector(`#postContent${postId}`);
@@ -104,13 +105,9 @@ const updatePostFn = function () {
             return;
     }
 
-    cancelUpdate.addEventListener("click", function() {
-        return;
-    })
     updatedPostSubmit.addEventListener("click", updatePostAsync);
 
 }
-
 
 
 for (let i = 0; i < deletePost.length; i++) {
@@ -120,6 +117,29 @@ for (let i = 0; i < deletePost.length; i++) {
 for (let i = 0; i < updatePost.length; i++) {
     updatePost[i].addEventListener("click", updatePostFn)
 }
+
+
+//For Idle Function 
+
+var idleTime = 0;
+
+function startTimer () {
+
+    setInterval(increment, 60000);
+
+    $(document).on("keypress", idleTime = 0);
+    $(document).on("mousemore", idleTime = 0);
+
+    function increment() {
+        idleTime = idleTime + 1;
+        if(idleTime >= 1) {
+            commitLogout;
+        }
+    }
+
+}
+
+startTimer();
 
 logoutSubmit.addEventListener("click", commitLogout);
 newPostSubmit.addEventListener("click", newPost);
