@@ -1,9 +1,13 @@
-<div class="ui huge menu" id="appMenu">
+<div class="ui huge stackable menu appMenu" >
     <div class="item">
         <h3>Tech Blog</h3>
     </div>
     <a class="item" href="/">HomePage</a>
+    {{#if loggedIn}}
     <a class="item" href="/dashboard">DashBoard</a>
+    {{else}}
+    <a class="item signupBtn">DashBoard</a>
+    {{/if}}
     {{#if loggedIn}}
     <div class="right menu">
         <a class="item" id="logoutBtn">Log Out</a>
@@ -11,7 +15,7 @@
     {{else}}
     <div class="right menu">
         <a class="item" id="loginBtn">Login</a>
-        <a class="item" id="signupBtn">Sign Up</a>
+        <a class="item signupBtn">Sign Up</a>
     </div>
     {{/if}}
 </div>
@@ -121,7 +125,7 @@
 </script>
 <script>
     $('.signupModal')
-        .modal('attach events', '#signupBtn')
+        .modal('attach events', '.signupBtn')
        // .modal('show');
 </script>
 {{/if}}

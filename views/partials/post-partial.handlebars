@@ -8,7 +8,7 @@
         </div>
         <div class="right menu">
             <div class="item">
-                <h7>Posted by {{user_name}} on 6/15/23</h7>
+                <h7>Posted by {{user_name}} on {{format_date createdAt}}</h7>
             </div>
         </div>
     </div>
@@ -25,11 +25,11 @@
     </div>
     <div class="commentsSection" id="commentsSection{{id}}">
         {{!-- <div class="ui horizontal stackable one cards commentCardDiv"> --}}
-            <div class="ui middle aligned list">
+            <div class="ui middle aligned list" id="commentList{{id}}">
                 {{#each comments}}
                 <div class="item commentCard">
                     <div class="right floated content">
-                        <p>{{comment_user}}<br>6/20/2023</p>
+                        <p>{{comment_user}}<br>{{format_date createdAt}}</p>
                     </div>
                     <div class="content">
                         <h3>{{comment_content}}</h3>

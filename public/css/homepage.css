@@ -3,9 +3,10 @@
 
 /* For header/menu */ 
 
-#appMenu {
+.appMenu {
     position: fixed;
     width: 100%;
+    z-index: 4;
 }
 
 
@@ -123,4 +124,20 @@
 
 .content {
     padding: 1%;
+}
+
+
+@media (max-width: 750px) {
+    #homePageMain {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    #dashboardMain {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    #appMenu {
+        width: 100%;
+    }
+    
 }

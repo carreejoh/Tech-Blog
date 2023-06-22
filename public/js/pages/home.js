@@ -23,7 +23,32 @@ const addComment = function () {
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
-            location.reload();
+            // location.reload();
+            let cardList = document.querySelector(`#commentList${post_id}`);
+            let card = document.createElement("div");
+            card.className = "item commentCard";
+            let userDateDiv = document.createElement("div");
+            userDateDiv.className = "right floated content";
+            let userDateP = document.createElement("p");
+
+            //For date
+            function format_date(date) {
+                return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${
+                    new Date(date).getFullYear() 
+                  }`;
+            }
+
+            userDateP.innerHTML = `${data.comment_user}<br>${format_date(data.createdAt)}`
+            let content = document.createElement("div");
+            content.className = "content";
+            let contenth3 = document.createElement("h3");
+            contenth3.innerHTML = `${data.comment_content}`
+
+            cardList.appendChild(card);
+            card.appendChild(userDateDiv);
+            userDateDiv.appendChild(userDateP);
+            card.appendChild(content);
+            content.appendChild(contenth3);
         })
         .catch((err) => {
             console.log(err);
