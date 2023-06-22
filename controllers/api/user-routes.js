@@ -62,23 +62,18 @@ router.post('/login', async (req, res) => {
             return;
         }
 
+        const password = await response.checkPassword(req.body.password);
+       
+        if(!password) {
+            res.status(400).json({ message: 'Incorrect Password'});
+            return;
+        }
+
         req.session.save(() => {
             req.session.loggedIn = true;
             req.session.userid = response.dataValues.id
             res.status(200).json({ user: response, message: "Log in successful"});
         });
-        // const password = await response.checkPassword(req.body.password);
-
-        // if(!password) {
-        //     res.status(400).json({message: 'Incorrect password'});
-        //     return;
-        // }
-
-        // req.session.save(() => {
-        //     req.session.loggedIn = true;
-        //     req.session.userid = response.dataValues.id
-        //     res.status(200).json({ user: response, message: "Log in successful" });
-        // });
 
     } catch (e) {
         console.error(e);
