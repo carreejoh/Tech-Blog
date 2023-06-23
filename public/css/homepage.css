@@ -13,11 +13,14 @@
     position: fixed;
     width: 100%;
     z-index: 4;
+    background-color: white;
 }
 
 .appMenu a {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: italic;
+    color: black;
+    font-size: 20px;
 }
 
 .appMenu h3 {
@@ -26,7 +29,16 @@
     border: solid var(--neonred);
     border-width: 0px 0px 2px 0px;
     font-weight: 100;
+    font-size: 30px;
 }
+
+/* #listMenu {
+    width: 70%;
+} */
+
+/* #listMenu a {
+    width: 30%;
+} */
 
 /* For HomePage Div */ 
 
@@ -164,8 +176,4 @@
         padding-left: 1%;
         padding-right: 1%;
     }
-    #appMenu {
-        width: 100%;
-    }
-    
 }

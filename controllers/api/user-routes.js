@@ -36,12 +36,22 @@ router.post('/signup', async (req, res) => {
             username: req.body.username,
             password: req.body.password
         });
-        //Add login functionality
-        res.status(200).json(newUser);
+        
+        if(!newUser) {
+            res.status(400).json({ message: "Signup Failed"});
+            return;
+        }
+
+        const loginUser = await User.findOne({
+            where: {
+                username: req.body.username
+            }
+        });
+
         req.session.save(() => {
             req.session.loggedIn = true;
-            req.session.userid = newUser.dataValues.id
-            // res.status(200).json(newUser);
+            req.session.userid = loginUser.dataValues.id
+            res.status(200).json({ user: loginUser, message: "Sign Up and Log in successful"});
         });
     } catch (e) {
         console.error(e);

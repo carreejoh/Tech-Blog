@@ -29,7 +29,6 @@ const commitSignUp = async () => {
             headers: { 'Content-Type': 'application/json'}
         });
         console.log(username);
-    console.log(password);
         if(response.ok) {
             document.location.replace('/');
         } else {
@@ -52,7 +51,6 @@ const commitLoginIn = async () => {
             body: JSON.stringify({ username, password}),
             headers: { 'Content-Type': 'application/json'}
         });
-
         if(response.ok) {
             document.location.replace('/');
         } else {

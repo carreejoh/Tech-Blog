@@ -1,17 +1,18 @@
 // For menu
 
-let fluidMenu = document.querySelector(".appMenu");
+let largeMenu = document.querySelector(".appMenu");
 
 function checkSize() {
     if(window.innerWidth <= 750) {
-        fluidMenu.className = "ui huge centered fluid stackable wrapping menu appMenu"
-    } else {
-        fluidMenu.className = "ui huge menu appMenu"
+        largeMenu.className = "ui huge centered fluid stackable wrapping menu appMenu";
+    } else if (window.innerWidth > 750 ){
+        largeMenu.className = "ui huge menu appMenu"
     }
 }
 
 window.addEventListener("resize", checkSize);
 window.addEventListener("load", checkSize);
+
 
 
 

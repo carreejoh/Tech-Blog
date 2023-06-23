@@ -16,6 +16,27 @@
     {{/if}}
 </div>
 
+{{!-- <div class="ui huge horizontal list appMenu">
+    <div class="item">
+        <h3>Tech Blog</h3>
+    </div>
+
+    <div class="ui centered menu" id="listMenu">
+        <a class="item" href="/">HomePage</a>
+        <a class="item" href="/dashboard">DashBoard</a>
+        {{#if loggedIn}}
+        <div class="right menu">
+            <a class="item" id="logoutBtn">Log Out</a>
+        </div>
+        {{else}}
+        <div class="right menu">
+            <a class="item" id="loginBtn">Login</a>
+            <a class="item signupBtn">Sign Up</a>
+        </div>
+        {{/if}}
+    </div>
+</div> --}}
+
 
 {{!-- For Login / Sign Up Modal --}}
 {{#if loggedIn}}
@@ -176,25 +197,26 @@
 {{!-- For Delete Confirm Modal --}}
 
 {{!-- <div class="ui basic modal deleteConfirmModal">
-  <div class="ui icon header">
-    <i class="archive icon"></i>
-    Archive Old Messages
-  </div>
-  <div class="content">
-    <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
-  </div>
-  <div class="actions">
-    <div class="ui red basic cancel inverted button">
-      <i class="remove icon"></i>
-      No
+    <div class="ui icon header">
+        <i class="archive icon"></i>
+        Archive Old Messages
     </div>
-    <div class="ui green ok inverted button">
-      <i class="checkmark icon"></i>
-      Yes
+    <div class="content">
+        <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
     </div>
-  </div>
+    <div class="actions">
+        <div class="ui red basic cancel inverted button">
+            <i class="remove icon"></i>
+            No
+        </div>
+        <div class="ui green ok inverted button">
+            <i class="checkmark icon"></i>
+            Yes
+        </div>
+    </div>
 </div> --}}
-{{!-- <script>
+{{!--
+<script>
     $('.updatePostModal')
         .modal('attach events', '.updatePostBtn')
        // .modal('show');
